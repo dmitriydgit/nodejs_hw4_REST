@@ -12,12 +12,18 @@ var loginRouter = require('./routes/login');
 var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products');
 var notificationsRouter = require('./routes/notifications');
+var hbs = require('hbs');
+
+
 
 var app = express();
 
+hbs.registerPartials(__dirname + "/views/partials");
+
+
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+app.set('views', path.join(__dirname, 'views'));
 
 app.use(logger('dev'));
 app.use(express.json());
